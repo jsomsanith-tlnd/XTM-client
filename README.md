@@ -9,9 +9,14 @@ It needs some dependencies
 > yarn
 ```
 
-To run it, you need to pass the path to the file to upload.
+To upload files to XTM project, you need to pass the path to the file to upload.
 ```
-> yarn run-xtm -f /path/to/file
+> yarn upload -f /path/to/file
+```
+
+To download tarnslations from XTM project, you need to pass the target folder path.
+```
+> yarn download -p /target/path
 ```
 
 ## For Talend/ui : xtm.sh

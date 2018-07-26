@@ -8,5 +8,4 @@ cd $UI_FOLDER
 zip -r i18n.zip i18n/
 
 cd $XTM_FOLDER
-#yarn run-xtm -- --file $UI_FOLDER/i18n.zip
-./xtm.js -f $UI_FOLDER/i18n.zip
+yarn upload -f $UI_FOLDER/i18n.zip
