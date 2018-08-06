@@ -26,18 +26,16 @@ function uploadFiles(data) {
 
 	const form = new FormData();
 	form.append('matchType', 'MATCH_NAMES');
-	form.append('files', fs.createReadStream(filePath), {
-		name: path.basename(filePath),
-	});
+	form.append('files[0].file', fs.createReadStream(filePath));
 
 	return fetch(`${API_URL}/projects/${data.project.id}/files/upload`, {
 		method: 'POST',
-		headers: { Authorization: `XTM-Basic ${data.token}`, 'Content-Type': 'multipart/form-data' },
+		headers: { Authorization: `XTM-Basic ${data.token}` },
 		body: form,
 	})
 		.then(handleError)
 		.then(res => res.json())
-		.then(res => console.log(res))
+		.then(res => console.table(res.jobs))
 		.then(() => console.log(`Project has been updated with ${filePath}`));
 }
 

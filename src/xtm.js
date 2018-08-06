@@ -56,7 +56,10 @@ function getUIProject() {
 		.then(res => res.json())
 		.then(filterProjectList)
 		.then(project => (data.project = project))
-		.then(() => console.log(`Project found: ${JSON.stringify(data.project, null, 2)}`))
+		.then(() => {
+			console.log('Project found');
+			console.table(data.project);
+		})
 		.then(() => data);
 }
 
